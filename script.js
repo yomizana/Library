@@ -1,4 +1,10 @@
 let myLibrary = ["The Hobbit", "The Thing", "A Clockwork Orange"];
+const showFormButton = document.getElementById("show-form-btn");
+const addBookForm = document.getElementById("add-book-form");
+
+showFormButton.addEventListener("click", () => {
+  addBookForm.classList.toggle("hidden");
+});
 
 function Book() {
   // the constructor...
