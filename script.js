@@ -53,7 +53,9 @@ addBookButton.addEventListener("click", () => {
   const author = document.getElementById("author").value;
   const year = document.getElementById("year").value;
   const pagesNumber = document.getElementById("pages-num").value;
-  const read = document.getElementById("read").value;
+  let read = document.getElementById("read").checked;
+
+  read = read === true ? "Yes" : "No";
 
   addBookToLibrary(title, author, year, pagesNumber, read);
 });
