@@ -14,9 +14,12 @@ showFormButton.addEventListener("click", () => {
 });
 
 class Book {
-  constructor(title, year) {
+  constructor(title, author, year, pagesNumber, read) {
     this.title = title;
+    this.author = author;
     this.year = year;
+    this.pagesNumber = pagesNumber;
+    this.read = read;
   }
 }
 
@@ -27,19 +30,30 @@ function displayBooks(newBook) {
   myLibrary.push(newBook);
 
   const row = tableBody.insertRow();
-  const cell1 = row.insertCell(0);
-  const cell2 = row.insertCell(1);
-  cell1.textContent = myLibrary[libraryLength].title;
-  cell2.textContent = myLibrary[libraryLength].year;
+  const title = row.insertCell(0);
+  const author = row.insertCell(1);
+  const year = row.insertCell(2);
+  const pagesNumber = row.insertCell(3);
+  const read = row.insertCell(4);
+
+  title.textContent = myLibrary[libraryLength].title;
+  author.textContent = myLibrary[libraryLength].author;
+  year.textContent = myLibrary[libraryLength].year;
+  pagesNumber.textContent = myLibrary[libraryLength].pagesNumber;
+  read.textContent = myLibrary[libraryLength].read;
 }
 
-function addBookToLibrary(title, year) {
-  const newBook = new Book(title, year);
+function addBookToLibrary(title, author, year, pagesNumber, read) {
+  const newBook = new Book(title, author, year, pagesNumber, read);
   displayBooks(newBook);
 }
 
 addBookButton.addEventListener("click", () => {
   const title = document.getElementById("name").value;
+  const author = document.getElementById("author").value;
   const year = document.getElementById("year").value;
-  addBookToLibrary(title, year);
+  const pagesNumber = document.getElementById("pages-num").value;
+  const read = document.getElementById("read").value;
+
+  addBookToLibrary(title, author, year, pagesNumber, read);
 });
