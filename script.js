@@ -1,4 +1,16 @@
 const myLibrary = [];
+const showFormButton = document.getElementById("show-form-btn");
+
+showFormButton.addEventListener("click", () => {
+  if (showFormButton.textContent === "Show Form") {
+    showFormButton.textContent = "Hide Form";
+  } else {
+    showFormButton.textContent = "Show Form";
+  }
+
+  const bookForm = document.getElementById("book-form");
+  bookForm.classList.toggle("hidden");
+});
 
 class Book {
   constructor(title, author, year, pages, read) {
