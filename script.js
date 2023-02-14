@@ -1,61 +1,61 @@
 const myLibrary = [];
-const showFormButton = document.getElementById("show-form-btn");
-const bookForm = document.getElementById("book-form");
-const addBookButton = document.getElementById("add-book-btn");
-
-showFormButton.addEventListener("click", () => {
-  bookForm.classList.toggle("hidden");
-
-  if (showFormButton.textContent === "Show Form") {
-    showFormButton.textContent = "Hide Form";
-  } else {
-    showFormButton.textContent = "Show Form";
-  }
-});
 
 class Book {
-  constructor(title, author, year, pagesNumber, read) {
+  constructor(title, author, year, pages, read) {
     this.title = title;
     this.author = author;
     this.year = year;
-    this.pagesNumber = pagesNumber;
+    this.pages = pages;
     this.read = read;
   }
 }
 
-function displayBooks(newBook) {
+function addBookToLibrary(book) {
+  myLibrary.push(book);
+}
+
+function displayBooks() {
   const tableBody = document.getElementById("table-body");
-  const libraryLength = myLibrary.length;
 
-  myLibrary.push(newBook);
+  myLibrary.forEach((book) => {
+    const row = tableBody.insertRow();
+    const title = row.insertCell(0);
+    const author = row.insertCell(1);
+    const year = row.insertCell(2);
+    const pages = row.insertCell(3);
+    const read = row.insertCell(4);
 
-  const row = tableBody.insertRow();
-  const title = row.insertCell(0);
-  const author = row.insertCell(1);
-  const year = row.insertCell(2);
-  const pagesNumber = row.insertCell(3);
-  const read = row.insertCell(4);
-
-  title.textContent = myLibrary[libraryLength].title;
-  author.textContent = myLibrary[libraryLength].author;
-  year.textContent = myLibrary[libraryLength].year;
-  pagesNumber.textContent = myLibrary[libraryLength].pagesNumber;
-  read.textContent = myLibrary[libraryLength].read;
+    title.textContent = book.title;
+    author.textContent = book.author;
+    year.textContent = book.year;
+    pages.textContent = book.pages;
+    read.textContent = book.read;
+  });
 }
 
-function addBookToLibrary(title, author, year, pagesNumber, read) {
-  const newBook = new Book(title, author, year, pagesNumber, read);
-  displayBooks(newBook);
-}
+const theHobbit = new Book(
+  "The Hobbit",
+  "J. R. R. Tolkien",
+  "1937",
+  "310",
+  "No"
+);
+const aClockWorkOrange = new Book(
+  "A Clockwork Orange",
+  "Anthony Burgess",
+  "1962",
+  "192",
+  "Yes"
+);
+const theMetamorphosis = new Book(
+  "The Metamorphosis",
+  "Franz Kafka",
+  "1915",
+  "70",
+  "No"
+);
 
-addBookButton.addEventListener("click", () => {
-  const title = document.getElementById("name").value;
-  const author = document.getElementById("author").value;
-  const year = document.getElementById("year").value;
-  const pagesNumber = document.getElementById("pages-num").value;
-  let read = document.getElementById("read").checked;
-
-  read = read === true ? "Yes" : "No";
-
-  addBookToLibrary(title, author, year, pagesNumber, read);
-});
+addBookToLibrary(theHobbit);
+addBookToLibrary(aClockWorkOrange);
+addBookToLibrary(theMetamorphosis);
+displayBooks();
