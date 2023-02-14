@@ -1,5 +1,6 @@
 const myLibrary = [];
 const showFormButton = document.getElementById("show-form-btn");
+const addBookButton = document.getElementById("add-book-btn");
 
 showFormButton.addEventListener("click", () => {
   if (showFormButton.textContent === "Show Form") {
@@ -22,12 +23,12 @@ class Book {
   }
 }
 
-function addBookToLibrary(book) {
-  myLibrary.push(book);
-}
-
 function displayBooks() {
   const tableBody = document.getElementById("table-body");
+
+  while (tableBody.rows.length > 0) {
+    tableBody.deleteRow(0);
+  }
 
   myLibrary.forEach((book) => {
     const row = tableBody.insertRow();
@@ -44,6 +45,24 @@ function displayBooks() {
     read.textContent = book.read;
   });
 }
+
+function addBookToLibrary(book) {
+  myLibrary.push(book);
+  displayBooks();
+}
+
+addBookButton.addEventListener("click", () => {
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const year = document.getElementById("year").value;
+  const pages = document.getElementById("pages").value;
+  let read = document.getElementById("read").checked;
+
+  read = read === true ? "Yes" : "No";
+
+  const book = new Book(title, author, year, pages, read);
+  addBookToLibrary(book);
+});
 
 const theHobbit = new Book(
   "The Hobbit",
@@ -70,4 +89,3 @@ const theMetamorphosis = new Book(
 addBookToLibrary(theHobbit);
 addBookToLibrary(aClockWorkOrange);
 addBookToLibrary(theMetamorphosis);
-displayBooks();
