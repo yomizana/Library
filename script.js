@@ -23,6 +23,15 @@ class Book {
   }
 }
 
+function createRemoveButton() {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "button";
+  button.textContent = "Remove";
+
+  return button;
+}
+
 function displayBooks() {
   const tableBody = document.getElementById("table-body");
 
@@ -31,18 +40,22 @@ function displayBooks() {
   }
 
   myLibrary.forEach((book) => {
+    const removeButton = createRemoveButton();
+
     const row = tableBody.insertRow();
     const title = row.insertCell(0);
     const author = row.insertCell(1);
     const year = row.insertCell(2);
     const pages = row.insertCell(3);
     const read = row.insertCell(4);
+    const remove = row.insertCell(5);
 
     title.textContent = book.title;
     author.textContent = book.author;
     year.textContent = book.year;
     pages.textContent = book.pages;
     read.textContent = book.read;
+    remove.appendChild(removeButton);
   });
 }
 
