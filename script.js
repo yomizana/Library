@@ -23,11 +23,16 @@ class Book {
   }
 }
 
-function createRemoveButton() {
+function createRemoveButton(index, refreshTable) {
   const button = document.createElement("button");
   button.type = "button";
   button.className = "button";
   button.textContent = "Remove";
+  button.dataset.index = index;
+  button.addEventListener("click", () => {
+    myLibrary.splice(index, 1);
+    refreshTable();
+  });
 
   return button;
 }
@@ -39,8 +44,8 @@ function displayBooks() {
     tableBody.deleteRow(0);
   }
 
-  myLibrary.forEach((book) => {
-    const removeButton = createRemoveButton();
+  myLibrary.forEach((book, index) => {
+    const removeButton = createRemoveButton(index, displayBooks);
 
     const row = tableBody.insertRow();
     const title = row.insertCell(0);
