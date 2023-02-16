@@ -21,6 +21,10 @@ class Book {
     this.pages = pages;
     this.read = read;
   }
+
+  toggleRead() {
+    this.read = this.read === "Yes" ? "No" : "Yes";
+  }
 }
 
 function createRemoveButton(index, refreshTable) {
@@ -37,6 +41,20 @@ function createRemoveButton(index, refreshTable) {
   return button;
 }
 
+function createToggleReadButton(index, refreshTable) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "button";
+  button.textContent = "Toggle read";
+  button.dataset.index = index;
+  button.addEventListener("click", () => {
+    myLibrary[index].toggleRead();
+    refreshTable();
+  });
+
+  return button;
+}
+
 function displayBooks() {
   const tableBody = document.getElementById("table-body");
 
@@ -46,6 +64,7 @@ function displayBooks() {
 
   myLibrary.forEach((book, index) => {
     const removeButton = createRemoveButton(index, displayBooks);
+    const toggleReadButton = createToggleReadButton(index, displayBooks);
 
     const row = tableBody.insertRow();
     const title = row.insertCell(0);
@@ -60,6 +79,7 @@ function displayBooks() {
     year.textContent = book.year;
     pages.textContent = book.pages;
     read.textContent = book.read;
+    read.appendChild(toggleReadButton);
     remove.appendChild(removeButton);
   });
 }
