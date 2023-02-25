@@ -18,24 +18,27 @@
         <h2>Form</h2>
         <ul>
           <li>
-            <label for="title">Title:</label>
+            <label for="title" class="normal-label">Title:</label>
             <input type="text" name="title" id="title" required />
           </li>
           <li>
-            <label for="author">Author:</label>
+            <label for="author" class="normal-label">Author:</label>
             <input type="text" name="author" id="author" required />
           </li>
           <li>
-            <label for="year">Year:</label>
+            <label for="year" class="normal-label">Year:</label>
             <input type="number" name="year" id="year" required />
           </li>
           <li>
-            <label for="pages-num">Pages:</label>
+            <label for="pages-num" class="normal-label">Pages:</label>
             <input type="number" name="pages-num" id="pages" required />
           </li>
           <li>
-            <label for="read">Read:</label>
-            <input type="checkbox" name="read" id="read" />
+            <p>Read:</p>
+            <input type="radio" id="radio1" name="read" value="Yes" />
+            <label for="radio1" class="radio-label">Yes</label>
+            <input type="radio" id="radio2" name="read" value="No" />
+            <label for="radio2" class="radio-label">No</label>
           </li>
         </ul>
         <button type="submit" id="add-book-btn">Add book</button>
