@@ -82,9 +82,7 @@ addBookButton.addEventListener("click", () => {
   const author = document.getElementById("author").value;
   const year = document.getElementById("year").value;
   const pages = document.getElementById("pages").value;
-  let read = document.getElementById("read").checked;
-
-  read = read === true ? "Yes" : "No";
+  const read = document.querySelector('input[name="read"]:checked').value;
 
   const book = new Book(title, author, year, pages, read);
   addBookToLibrary(book);
