@@ -4,7 +4,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 320px 1fr;
-  grid-template-rows: 80px 1fr 50px;
+  grid-template-rows: max-content 1fr max-content;
 }
 
 #header {
@@ -22,12 +22,7 @@ body {
   align-content: center;
 }
 
-/* table {
-  margin: 10px;
-} */
-
-table,
-td {
+table {
   border: 1px solid black;
 }
 
@@ -43,14 +38,30 @@ ul {
 }
 
 li {
+  display: flex;
   padding-bottom: 5px;
+}
+
+label {
+  text-align: right;
+  padding-right: 10px;
+  flex: 0.5;
+}
+
+input {
+  flex: 2;
 }
 
 #sidebar {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
+  padding: 0 10px 0 10px;
 
   background-color: silver;
+}
+
+form > h2 {
+  text-align: center;
 }
 
 #footer {
