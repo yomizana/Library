@@ -35,10 +35,26 @@
           </li>
           <li>
             <p>Read:</p>
-            <input type="radio" id="radio1" name="read" value="Yes" />
-            <label for="radio1" class="radio-label">Yes</label>
-            <input type="radio" id="radio2" name="read" value="No" />
-            <label for="radio2" class="radio-label">No</label>
+            <div class="radio-element">
+              <input
+                type="radio"
+                id="radio1"
+                class="radio-button"
+                name="read"
+                value="Yes"
+              />
+              <label for="radio1">Yes</label>
+            </div>
+            <div class="radio-element">
+              <input
+                type="radio"
+                id="radio2"
+                class="radio-button"
+                name="read"
+                value="No"
+              />
+              <label for="radio2">No</label>
+            </div>
           </li>
         </ul>
         <button type="submit" id="add-book-btn">Add book</button>
