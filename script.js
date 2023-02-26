@@ -32,8 +32,7 @@ function createRemoveButton(index, refreshTable) {
 function createToggleReadButton(index, refreshTable) {
   const button = document.createElement("button");
   button.type = "button";
-  button.className = "button";
-  button.textContent = "Toggle read";
+  button.className = "toggle-button";
   button.dataset.index = index;
   button.addEventListener("click", () => {
     myLibrary[index].toggleRead();
@@ -60,14 +59,15 @@ function displayBooks() {
     const year = row.insertCell(2);
     const pages = row.insertCell(3);
     const read = row.insertCell(4);
-    const remove = row.insertCell(5);
+    const toggleRead = row.insertCell(5);
+    const remove = row.insertCell(6);
 
     title.textContent = book.title;
     author.textContent = book.author;
     year.textContent = book.year;
     pages.textContent = book.pages;
     read.textContent = book.read;
-    read.appendChild(toggleReadButton);
+    toggleRead.appendChild(toggleReadButton);
     remove.appendChild(removeButton);
   });
 }

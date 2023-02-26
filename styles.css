@@ -25,6 +25,18 @@ table {
   border: 1px solid black;
 }
 
+.toggle-button {
+  background: url(icons/sync.svg);
+  background-size: cover;
+  border: none;
+  height: 20px;
+  width: 20px;
+}
+
+.toggle-read {
+  width: 80px;
+}
+
 thead,
 tfoot {
   background-color: #333;
