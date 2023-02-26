@@ -25,15 +25,25 @@ table {
   border: 1px solid black;
 }
 
-.toggle-button {
-  background: url(icons/sync.svg);
-  background-size: cover;
+.toggle-button,
+.delete-button {
   border: none;
   height: 20px;
   width: 20px;
 }
 
-.toggle-read {
+.toggle-button {
+  background: url(icons/sync.svg);
+  background-size: cover;
+}
+
+.delete-button {
+  background: url(icons/delete.svg);
+  background-size: cover;
+}
+
+.toggle-read,
+.remove {
   width: 80px;
 }
 

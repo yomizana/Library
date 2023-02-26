@@ -18,8 +18,7 @@ class Book {
 function createRemoveButton(index, refreshTable) {
   const button = document.createElement("button");
   button.type = "button";
-  button.className = "button";
-  button.textContent = "Remove";
+  button.className = "delete-button";
   button.dataset.index = index;
   button.addEventListener("click", () => {
     myLibrary.splice(index, 1);
