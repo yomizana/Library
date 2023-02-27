@@ -30,8 +30,16 @@ body {
   grid-row: 2 / 4;
   padding: 0 10px 0 10px;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   background-color: silver;
   border: solid 1px black;
+}
+
+.credits {
+  text-align: center;
 }
 
 form > h2 {
