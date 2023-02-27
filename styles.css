@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/font/Poppins-Regular.woff2") format("woff2"),
+    url("./assets/font/Poppins-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --main-bg-color: #edf1d6;
   --secondary-color: #9dc08b;
@@ -7,6 +15,7 @@
 body {
   margin: 0;
   background-color: var(--main-bg-color);
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   height: 100vh;
   display: grid;
   grid-template-columns: 270px 1fr;
@@ -46,8 +55,29 @@ body {
   text-align: center;
 }
 
+a {
+  color: black;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
 form > h2 {
   text-align: center;
+  text-decoration: none;
 }
 
 .main-div {
@@ -90,12 +120,12 @@ th {
 }
 
 .toggle-button {
-  background: url(icons/sync.svg);
+  background: url(assets/icons/sync.svg);
   background-size: cover;
 }
 
 .delete-button {
-  background: url(icons/delete.svg);
+  background: url(assets/icons/delete.svg);
   background-size: cover;
 }
 
